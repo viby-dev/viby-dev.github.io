@@ -6,7 +6,7 @@ import { personalInfo, about, publications, talks } from '../mockData';
 const socialLinks = [
   { icon: Github, href: personalInfo.github, label: 'GitHub' },
   { icon: Linkedin, href: personalInfo.linkedin, label: 'LinkedIn' },
-  { icon: BookOpen, href: personalInfo.scholar, label: 'Google Scholar' }
+  // { icon: BookOpen, href: personalInfo.scholar, label: 'Google Scholar' }
 ];
 
 const AboutSection = () => {
@@ -53,11 +53,11 @@ const AboutSection = () => {
                 <div className="flex-1">
                   <h3 className="text-regular mb-6">Background</h3>
                   <div className="space-y-4">
-                    {about.bio.split('\\n\\n').map((paragraph, index) => (
-                      <p key={index} className="text-body">
-                        {paragraph}
-                      </p>
-                    ))}
+                    {about.bio.split('\n\n').map((paragraph, index) => (
+  <p key={index} className="text-body">
+    {paragraph}
+  </p>
+))}
                   </div>
                 </div>
               </div>
@@ -80,6 +80,7 @@ const AboutSection = () => {
                     <h4 className="label mb-2">{edu.degree}</h4>
                     <p className="text-body mb-1">{edu.institution}</p>
                     <p className="label-small text-[#38FF62]">{edu.year}</p>
+                    {edu.marks && <p className="label-small text-white/50 mt-1">{edu.marks}</p>}
                   </div>
                 ))}
               </div>
@@ -196,13 +197,17 @@ const AboutSection = () => {
               Talks & Demos
             </h3>
             <div className="space-y-6">
-              {talks.map((talk) => (
-                <div key={talk.id} className="card">
-                  <h4 className="text-body font-semibold mb-3">{talk.title}</h4>
-                  <p className="text-body mb-2">{talk.event}</p>
-                  <p className="label-small text-[#38FF62]">{talk.date}</p>
-                </div>
-              ))}
+            {talks.map((talk) => (
+              <div
+                key={talk.id}
+                onClick={() => talk.link && window.open(talk.link, '_blank')}
+                className={`card block transition-all ${talk.link ? 'hover:border-[#38FF62] cursor-pointer' : 'cursor-default'}`}
+              >
+                <h4 className="text-body font-semibold mb-3">{talk.title}</h4>
+                <p className="text-body mb-2">{talk.event}</p>
+                <p className="label-small text-[#38FF62]">{talk.date}</p>
+              </div>
+            ))} 
             </div>
           </motion.div>
         </div>

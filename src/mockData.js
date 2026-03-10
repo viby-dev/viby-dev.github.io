@@ -1,39 +1,50 @@
 export const personalInfo = {
   name: "Bhavish Rai B",
-  tagline: "Bridging the gap between AI research and real-world robotics. Developing autonomous systems that perceive, reason, and act intelligently.",
-  email: "alex@robotics.edu",
+  tagline: "Robotics engineer designing system-level architectures for coordinated multi-robot autonomy - bridging language-driven reasoning, perception, and ROS2 execution into deployable real-world systems.",  email: "bhavishraib@gmail.com",
+  footerTagline: "Building robots that reason, adapt, and act.",
   location: "IIT Gandhinagar, India",
-  github: "https://github.com/username",
-  linkedin: "https://linkedin.com/in/username",
-  scholar: "https://scholar.google.com/",
+  github: "https://github.com/braib",
+  linkedin: "https://www.linkedin.com/in/bhavish-rai-b-761421231/",
+  // scholar: "https://scholar.google.com/",
   resume: require("./assets/CV.pdf"),
   profileImage: require("./assets/bhavish.png")
 };
 
 export const about = {
-  bio: `I'm a robotics researcher focused on building intelligent autonomous systems that bridge the gap between AI research and real-world deployment. My work spans multi-robot coordination, vision-language models, and control systems for complex robotic platforms.\n\nCurrently working with cutting-edge platforms including TurtleBot3, Unitree Go2 quadrupeds, and SO-101 robotic arms. My research has been presented at IROS and deployed in production environments at IITGN.\n\nI specialize in developing practical solutions for autonomous navigation, sensor fusion, and multi-agent systems using Python, C++, and ROS 2.`,
+bio: `I'm a robotics engineer building intelligent systems that bridge the gap between AI research and real-world deployment. My work focuses on multi-robot coordination - connecting LLM-based task planning, VLM perception, and ROS2 execution into systems that actually work on real hardware.
+
+Currently a Program Assistant at IIT Gandhinagar, where I work with platforms like Unitree Go2, TurtleBot3, and SO-101 arms. My research on CoMuRoS - a hierarchical multi-robot architecture - has been published at IROS 2025 and ArXiv.
+
+I care about robots that don't just simulate well, but deploy reliably.`,
   education: [
     {
-      degree: "M.Tech in Robotics",
-      institution: "Indian Institute of Technology Gandhinagar",
-      year: "2022-2024"
+      degree: "Bachelor of Engineering in Robotics and Automation ",
+      institution: "Sahyadri College of Engineering and Management Adyar, Mangaluru",
+      year: "2021-2025",
+      marks: "CGPA: 8.5 / 10"
     },
     {
-      degree: "B.Tech in Mechanical Engineering",
-      institution: "Technical University",
-      year: "2018-2022"
+      degree: "Pre-University Education (PCMCs)",
+      institution: "Sri Rama Pre-University College, Kalladka",
+      year: "2019-2021",
+      marks: "92%"
     }
   ],
   experience: [
     {
-      role: "Research Assistant",
+      role: "Program Assistant - I ",
       organization: "IIT Gandhinagar Robotics Lab",
-      period: "2023-Present"
+      period: "2025 June -Present"
     },
     {
-      role: "Robotics Intern",
-      organization: "Autonomous Systems Lab",
-      period: "Summer 2022"
+      role: "Robotics Research Intern",
+      organization: "IIT Gandhinagar Robotics Lab",
+      period: "January 2025 - May 2025"
+    },
+    {
+      role: "Research Intern",
+      organization: "Technical Career Education",
+      period: "October 2023 - November 2023"
     }
   ]
 };
@@ -426,46 +437,81 @@ export const allProjects = [
 ];
 
 export const skills = {
-  "PROGRAMMING": ["Python", "C++", "C", "MATLAB", "JavaScript", "Rust"],
-  "ROBOTICS": ["ROS 2", "Gazebo", "MoveIt", "Nav2", "Isaac Sim", "Webots"],
-  "AI/ML": ["PyTorch", "TensorFlow", "OpenCV", "scikit-learn", "Keras", "ONNX"],
-  "PLATFORMS": ["TurtleBot3", "Unitree Go2", "SO-101", "STM32", "Raspberry Pi", "NVIDIA Jetson"],
-  "SIMULATION": ["Isaac Sim", "Gazebo", "CoppeliaSim", "PyBullet", "MuJoCo"],
-  "CONTROL": ["MPC", "PID", "LQR", "FOC", "State Estimation", "Kalman Filter"],
-  "VISION": ["SLAM", "Object Detection", "Semantic Segmentation", "Point Cloud", "Depth Estimation"],
-  "TOOLS": ["Git", "Docker", "Linux", "CMake", "CI/CD", "Jupyter"]
+  "ROBOTICS": [
+    { name: "ROS 2", percent: 85 },
+    { name: "MoveIt", percent: 70 },
+    { name: "Nav2", percent: 70 },
+    { name: "ros2_control", percent: 50 },
+    { name: "URDF/XACRO", percent: 70 },
+    { name: "RViz 2", percent: 60 },
+  ],
+  "PROGRAMMING": [
+    { name: "Python", percent: 85 },
+    { name: "C++", percent: 60 },
+    { name: "C", percent: 60 },
+  ],
+  "TOOLS": [
+    { name: "Git", percent: 80 },
+    { name: "Docker", percent: 65 },
+    { name: "Linux", percent: 85 },
+    { name: "SSH", percent: 70 },
+    { name: "VS Code", percent: 90 },
+  ],
+  "BOARDS": [
+    { name: "ESP32", percent: 70 },
+    { name: "ESP8266", percent: 70 },
+    { name: "Arduino Uno", percent: 70 },
+    { name: "Raspberry Pi", percent: 70 },
+    { name: "NVIDIA Jetson", percent: 65 },
+  ],
+  "PLATFORMS": [
+    { name: "TurtleBot3", percent: 90 },
+    { name: "Unitree Go2", percent: 60 },
+    { name: "Lerobot", percent: 70 },
+  ],
+  "SIMULATION": [
+    { name: "Gazebo Classic", percent: 90 },
+    { name: "Ignition Fortress", percent: 85 },
+  ],
+  "HARDWARE": [
+    { name: "3D Printing", percent: 80 },
+    { name: "Soldering", percent: 80 },
+  ],
+  "CONTROL": [
+    { name: "PID", percent: 70 },
+  ],
 };
-
 export const publications = [
   {
     id: 1,
-    title: "CoMuRoS: Collaborative Multi-Robot System with Large Language Models",
-    authors: "B. Rai et al.",
-    venue: "IROS",
-    year: 2023,
-    link: "https://scholar.google.com"
+    title: "CoMuRoS: LLM-Based Generalizable Hierarchical Task Planning and Execution for Heterogeneous Robot Teams with Event-Driven Replanning.",
+    authors: "Suraj Borate, Bhavish Rai B, Vipul Pardeshi, Madhu Vadali",
+    venue: "ArXiv, 2025",
+    year: 2025,
+    link: "https://arxiv.org/abs/2511.22354"
   },
   {
     id: 2,
-    title: "Vision-Language Models for Robotic Manipulation Tasks",
-    authors: "B. Rai, A. Colleague",
-    venue: "International Journal of Robotics Research",
-    year: 2023,
-    link: "https://scholar.google.com"
-  }
+    title: "CoMuRoS: A LLM-Driven Hierarchical Architecture for Adaptive Multi-Robot Collaboration",
+    authors: "Suraj Borate, Bhavish Rai B, Vipul Pardeshi, Madhu Vadali",
+    venue: "IROS 2025 LEAPRIDE Poster",
+    year: 2025,
+    link: "https://openreview.net/forum?id=a0GqX5jGDb"
+  },
 ];
 
 export const talks = [
   {
     id: 1,
-    title: "Multi-Robot Coordination with LLMs",
-    event: "IITGN Robotics Symposium 2023",
-    date: "December 2023"
+    title: "CoMuRoS: A ROS2 Based Package for LLM Driven Adaptive Collaborative Multi-Robot Systems",
+    event: "ROSCon India2025",
+    date: "December 2025",
+    // link: "https://your-talk-link.com"
   },
-  {
-    id: 2,
-    title: "Quadruped Robot Demo",
-    event: "National Robotics Week",
-    date: "April 2023"
-  }
+  // {
+  //   id: 2,
+  //   title: "Quadruped Robot Demo",
+  //   event: "National Robotics Week",
+  //   date: "April 2023"
+  // }
 ];

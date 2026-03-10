@@ -1,16 +1,22 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { Github, ExternalLink, Play, Star, ChevronLeft, ChevronRight } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { allProjects } from '../mockData';
 
 const categories = ['ALL', 'AI/ML', 'Multi-Robot', 'Control', 'Vision', 'Embedded'];
 
+// Helper to extract YouTube video ID
+const getYouTubeId = (url) => {
+  const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
+  const match = url.match(regExp);
+  return (match && match[2].length === 11) ? match[2] : null;
+};
+
 // Slideshow component for each project card
 const MediaSlideshow = ({ project }) => {
   const [current, setCurrent] = useState(0);
 
-  // Collect all media: project.media array + fallback to project.image
   const slides = project.media
     ? project.media.map(m => ({
         type: m.type,
@@ -21,7 +27,6 @@ const MediaSlideshow = ({ project }) => {
       }))
     : [{ type: 'image', url: project.image, isVideo: false }];
 
-  // Auto-advance every 3 seconds
   useEffect(() => {
     if (slides.length <= 1) return;
     const timer = setInterval(() => {
@@ -32,11 +37,13 @@ const MediaSlideshow = ({ project }) => {
 
   const prev = (e) => {
     e.preventDefault();
+    e.stopPropagation();
     setCurrent(prev => (prev - 1 + slides.length) % slides.length);
   };
 
   const next = (e) => {
     e.preventDefault();
+    e.stopPropagation();
     setCurrent(prev => (prev + 1) % slides.length);
   };
 
@@ -54,17 +61,14 @@ const MediaSlideshow = ({ project }) => {
         />
       ))}
 
-      {/* Video indicator */}
       {slides[current]?.isVideo && (
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
           <Play className="text-[#38FF62]" size={40} fill="#38FF62" />
         </div>
       )}
 
-      {/* Gradient overlay */}
       <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] to-transparent opacity-60" />
 
-      {/* Prev/Next buttons */}
       {slides.length > 1 && (
         <>
           <button
@@ -79,13 +83,11 @@ const MediaSlideshow = ({ project }) => {
           >
             <ChevronRight size={16} className="text-white" />
           </button>
-
-          {/* Dot indicators */}
           <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1.5 z-10">
             {slides.map((_, i) => (
               <button
                 key={i}
-                onClick={(e) => { e.preventDefault(); setCurrent(i); }}
+                onClick={(e) => { e.preventDefault(); e.stopPropagation(); setCurrent(i); }}
                 className={`w-1.5 h-1.5 rounded-full transition-all ${
                   i === current ? 'bg-[#38FF62] w-3' : 'bg-white/50'
                 }`}
@@ -98,19 +100,19 @@ const MediaSlideshow = ({ project }) => {
   );
 };
 
-// Helper to extract YouTube video ID
-const getYouTubeId = (url) => {
-  const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
-  const match = url.match(regExp);
-  return (match && match[2].length === 11) ? match[2] : null;
-};
-
 const ProjectsSection = () => {
   const [activeFilter, setActiveFilter] = useState('ALL');
+  const navigate = useNavigate();
 
   const filteredProjects = activeFilter === 'ALL'
     ? allProjects.filter(project => project.featured)
     : allProjects.filter(project => project.category.includes(activeFilter));
+
+  const handleProjectClick = (slug) => {
+    // Save current scroll position before navigating
+    sessionStorage.setItem('home-scroll', window.scrollY.toString());
+    navigate(`/project/${slug}`);
+  };
 
   return (
     <section id="projects" className="relative py-24">
@@ -119,7 +121,7 @@ const ProjectsSection = () => {
           <p className="label mb-4">ALL WORK</p>
           <h2 className="title-big">PROJECTS</h2>
           <p className="text-big max-w-3xl mt-8">
-            A collection of robotics projects spanning AI/ML, multi-robot systems, computer vision, and control theory.
+            A collection of robotics projects ...
           </p>
         </div>
 
@@ -151,16 +153,24 @@ const ProjectsSection = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, delay: index * 0.05 }}
             >
-              <Link to={`/project/${project.slug}`} className="block">
+              <div
+                className="block cursor-pointer"
+                onClick={() => handleProjectClick(project.slug)}
+              >
                 <motion.div
-                  className="card group cursor-pointer h-full flex flex-col relative overflow-hidden"
+                  className="card group h-full flex flex-col relative overflow-hidden"
                   whileHover={{ y: -4 }}
                   transition={{ duration: 0.2 }}
                 >
-                  {/* Featured Ribbon */}
+                  {/* Featured Badge */}
                   {project.featured && (
-                    <div className="absolute top-4 right-4 z-10 p-1.5 bg-transparent border border-[#38FF62] flex items-center">
-                      <Star size={14} fill="#38FF62" stroke="#38FF62" />
+                    <div className="absolute top-4 right-4 z-10">
+                      <Star
+                        size={18}
+                        fill="rgba(56,255,98,0.5)"
+                        stroke="rgba(56,255,98,0.7)"
+                        style={{ filter: 'drop-shadow(0 0 4px rgba(56,255,98,0.4))' }}
+                      />
                     </div>
                   )}
 
@@ -226,7 +236,7 @@ const ProjectsSection = () => {
                     </div>
                   </div>
                 </motion.div>
-              </Link>
+              </div>
             </motion.div>
           ))}
         </div>

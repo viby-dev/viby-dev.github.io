@@ -11,7 +11,7 @@ const Footer = () => {
   const socialLinks = [
     { icon: Github, href: personalInfo.github, label: 'GitHub' },
     { icon: Linkedin, href: personalInfo.linkedin, label: 'LinkedIn' },
-    { icon: BookOpen, href: personalInfo.scholar, label: 'Google Scholar' },
+    // { icon: BookOpen, href: personalInfo.scholar, label: 'Google Scholar' },
     { icon: Mail, href: `mailto:${personalInfo.email}`, label: 'Email' }
   ];
 
@@ -66,7 +66,7 @@ const Footer = () => {
               braib
             </div>
             <p className="text-body max-w-xs">
-              {personalInfo.tagline}
+              {personalInfo.footerTagline}
             </p>
           </div>
 
@@ -116,9 +116,6 @@ const Footer = () => {
         <div className="pt-8 border-t border-[#2a2a2a] flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="label-small">
             © {currentYear} {personalInfo.name.toUpperCase()}. ALL RIGHTS RESERVED.
-          </p>
-          <p className="label-small">
-            DESIGNED & BUILT WITH PRECISION
           </p>
         </div>
       </div>

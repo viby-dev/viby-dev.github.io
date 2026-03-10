@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { Mail, FileText } from 'lucide-react';
+// import { Mail, FileText } from 'lucide-react';
+import { FileText } from 'lucide-react';
+import { personalInfo } from '../mockData';
 
 const Header = () => {
   const navigate = useNavigate();
@@ -184,7 +186,7 @@ const Header = () => {
 
           <div className="flex items-center space-x-4">
             <a
-              href="/resume.pdf"
+              href={personalInfo.resume}
               target="_blank"
               rel="noopener noreferrer"
               className="hidden sm:flex items-center gap-2 px-5 py-3 border border-white/20 text-white hover:border-[#38FF62] hover:text-[#38FF62] transition-all font-bold"
@@ -193,14 +195,14 @@ const Header = () => {
               <FileText size={16} />
               CV
             </a>
-            <a
+            {/* <a
               href="mailto:alex@robotics.edu"
               className="flex items-center gap-2 px-5 py-3 bg-[#38FF62] hover:bg-[#2AE052] transition-colors font-bold"
               style={{ fontFamily: 'var(--font-mono)', fontSize: '13px', letterSpacing: '0.08em', textTransform: 'uppercase', color: '#0a0a0a' }}
             >
               <Mail size={16} style={{ color: '#0a0a0a' }} />
               <span style={{ color: '#0a0a0a' }}>EMAIL</span>
-            </a>
+            </a> */}
           </div>
         </div>
       </div>
