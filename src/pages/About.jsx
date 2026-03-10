@@ -1,170 +1,214 @@
 import React from 'react';
+import { Github, Linkedin, BookOpen, Mail, ExternalLink, GraduationCap, Briefcase, Award } from 'lucide-react';
 import { motion } from 'framer-motion';
-import { personalInfo, about } from '../mockData';
-import { mockSkills } from '../mockData';
+import { personalInfo, about, publications, talks } from '../mockData';
 
-const About = () => {
+const socialLinks = [
+  { icon: Github, href: personalInfo.github, label: 'GitHub' },
+  { icon: Linkedin, href: personalInfo.linkedin, label: 'LinkedIn' },
+  { icon: BookOpen, href: personalInfo.scholar, label: 'Google Scholar' }
+];
+
+const AboutSection = () => {
   return (
-    <div className="min-h-screen bg-[#0A0A0A] text-white relative">
-      <div className="grid-background" />
-      
-      <div className="pt-32 pb-20 px-6">
-        <div className="container mx-auto max-w-4xl">
-          {/* Header */}
-          <motion.div 
-            className="mb-16"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-          >
-            <span className="text-xs font-mono uppercase tracking-widest text-[#38FF62]">
-              Background
-            </span>
-            <h1 className="text-5xl md:text-6xl font-bold mt-4 mb-6">About Me</h1>
-          </motion.div>
+    <section id="about" className="relative py-24">
+      <div className="container mx-auto px-6">
+        {/* Header */}
+        <motion.div
+          className="mb-16"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          <p className="label mb-4">GET TO KNOW ME</p>
+          <h2 className="title-big mb-8">ABOUT</h2>
+        </motion.div>
 
-          {/* Profile & Bio */}
-          <motion.section 
-            className="mb-16"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-          >
-            <div className="flex flex-col md:flex-row gap-12 items-start">
-              {/* Large Profile Image */}
-              <div className="flex-shrink-0 mx-auto md:mx-0">
-                <motion.div 
-                  className="w-64 h-64 md:w-72 md:h-72 rounded-full overflow-hidden border-4 border-[#38FF62] shadow-2xl shadow-[#38FF62]/30"
-                  whileHover={{ scale: 1.05, rotate: 2 }}
-                  transition={{ duration: 0.3 }}
-                >
-                  <img
-                    src={personalInfo.profileImage}
-                    alt={personalInfo.name}
-                    className="w-full h-full object-cover"
-                  />
-                </motion.div>
-              </div>
-
-              {/* Bio Content */}
-              <div className="flex-1 space-y-6">
-                <p className="text-lg text-white/90 leading-relaxed">
-                  I'm a robotics engineer focused on building intelligent autonomous systems that bridge the gap between AI research and real-world deployment. My work spans multi-robot coordination, vision-language models, and control systems for complex robotic platforms.
-                </p>
-                <p className="text-lg text-white/90 leading-relaxed">
-                  Currently working with cutting-edge platforms including TurtleBot3, Unitree Go2 quadrupeds, and SO-101 robotic arms. My research has been presented at IROS and deployed in production environments at IITGN.
-                </p>
-                <p className="text-lg text-white/90 leading-relaxed">
-                  I specialize in developing practical solutions for autonomous navigation, sensor fusion, and multi-agent systems. My recent work on CoMuRoS demonstrates how Large Language Models can revolutionize multi-robot coordination.
-                </p>
-
-                {/* Quick Facts Card */}
-                <div className="bg-[#141414] border border-white/10 p-6 mt-8">
-                  <h3 className="text-xs font-mono uppercase tracking-widest text-white/50 mb-4">
-                    Quick Facts
-                  </h3>
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+          {/* Main Content */}
+          <div className="lg:col-span-2 space-y-12">
+            {/* Profile & Bio */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <div className="flex flex-col md:flex-row gap-8 mb-8">
+                {/* Profile Image */}
+                <div className="flex-shrink-0">
+                  <motion.div
+                    className="w-48 h-48 md:w-56 md:h-56 rounded-full overflow-hidden border-4 border-[#38FF62] shadow-lg shadow-[#38FF62]/20"
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <img
+                      src={personalInfo.profileImage}
+                      alt={personalInfo.name}
+                      className="w-full h-full object-cover"
+                    />
+                  </motion.div>
+                </div>
+                <div className="flex-1">
+                  <h3 className="text-regular mb-6">Background</h3>
                   <div className="space-y-4">
-                    <div>
-                      <div className="text-sm font-mono text-white/50">Location</div>
-                      <div className="text-base">{personalInfo.location}</div>
-                    </div>
-                    <div>
-                      <div className="text-sm font-mono text-white/50">Institution</div>
-                      <div className="text-base">IIT Gandhinagar</div>
-                    </div>
-                    <div>
-                      <div className="text-sm font-mono text-white/50">Focus Areas</div>
-                      <div className="text-base">AI/ML, Multi-Robot, Control</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </motion.section>
-
-          {/* Education */}
-          <section className="mb-16">
-            <h2 className="text-2xl font-bold mb-8">Education</h2>
-            <div className="space-y-6">
-              <div className="bg-[#141414] border border-white/10 p-6">
-                <div className="flex justify-between items-start mb-2">
-                  <h3 className="text-xl font-bold">Master of Technology in Robotics</h3>
-                  <span className="text-sm font-mono text-white/50">2022-2024</span>
-                </div>
-                <p className="text-white/70">Indian Institute of Technology Gandhinagar</p>
-                <p className="text-sm text-white/50 mt-2">Thesis: Multi-Robot Coordination using Large Language Models</p>
-              </div>
-              <div className="bg-[#141414] border border-white/10 p-6">
-                <div className="flex justify-between items-start mb-2">
-                  <h3 className="text-xl font-bold">Bachelor of Technology in Mechanical Engineering</h3>
-                  <span className="text-sm font-mono text-white/50">2018-2022</span>
-                </div>
-                <p className="text-white/70">Technical University</p>
-              </div>
-            </div>
-          </section>
-
-          {/* Experience */}
-          <section className="mb-16">
-            <h2 className="text-2xl font-bold mb-8">Experience</h2>
-            <div className="space-y-6">
-              <div className="bg-[#141414] border border-white/10 p-6">
-                <div className="flex justify-between items-start mb-2">
-                  <div>
-                    <h3 className="text-xl font-bold">Research Assistant</h3>
-                    <p className="text-white/70">IIT Gandhinagar Robotics Lab</p>
-                  </div>
-                  <span className="text-sm font-mono text-white/50">2023-Present</span>
-                </div>
-                <ul className="text-sm text-white/70 mt-4 space-y-2 list-disc list-inside">
-                  <li>Developed CoMuRoS multi-robot coordination system using LLMs</li>
-                  <li>Implemented sensor fusion pipeline for autonomous navigation</li>
-                  <li>Created GR00T finetuning pipeline for vision-language models</li>
-                </ul>
-              </div>
-              <div className="bg-[#141414] border border-white/10 p-6">
-                <div className="flex justify-between items-start mb-2">
-                  <div>
-                    <h3 className="text-xl font-bold">Robotics Intern</h3>
-                    <p className="text-white/70">Autonomous Systems Lab</p>
-                  </div>
-                  <span className="text-sm font-mono text-white/50">Summer 2022</span>
-                </div>
-                <ul className="text-sm text-white/70 mt-4 space-y-2 list-disc list-inside">
-                  <li>Developed MPC controller for mobile robot navigation</li>
-                  <li>Contributed to dataset collection pipeline for manipulation</li>
-                </ul>
-              </div>
-            </div>
-          </section>
-
-          {/* Skills Matrix */}
-          <section>
-            <h2 className="text-2xl font-bold mb-8">Skills & Technologies</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {Object.entries(mockSkills).map(([category, skills]) => (
-                <div key={category} className="bg-[#141414] border border-white/10 p-6">
-                  <h3 className="text-xs font-mono uppercase tracking-widest text-white/50 mb-4">
-                    {category}
-                  </h3>
-                  <div className="flex flex-wrap gap-2">
-                    {skills.map((skill) => (
-                      <span 
-                        key={skill}
-                        className="px-3 py-1 bg-white/5 text-sm text-white/70 border border-white/10"
-                      >
-                        {skill}
-                      </span>
+                    {about.bio.split('\\n\\n').map((paragraph, index) => (
+                      <p key={index} className="text-body">
+                        {paragraph}
+                      </p>
                     ))}
                   </div>
                 </div>
+              </div>
+            </motion.div>
+
+            {/* Education */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+            >
+              <h3 className="text-regular mb-6 flex items-center gap-3">
+                <GraduationCap size={24} className="text-[#38FF62]" />
+                Education
+              </h3>
+              <div className="space-y-6">
+                {about.education.map((edu, index) => (
+                  <div key={index} className="card">
+                    <h4 className="label mb-2">{edu.degree}</h4>
+                    <p className="text-body mb-1">{edu.institution}</p>
+                    <p className="label-small text-[#38FF62]">{edu.year}</p>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+
+            {/* Experience */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+            >
+              <h3 className="text-regular mb-6 flex items-center gap-3">
+                <Briefcase size={24} className="text-[#38FF62]" />
+                Experience
+              </h3>
+              <div className="space-y-6">
+                {about.experience.map((exp, index) => (
+                  <div key={index} className="card">
+                    <h4 className="label mb-2">{exp.role}</h4>
+                    <p className="text-body mb-1">{exp.organization}</p>
+                    <p className="label-small text-[#38FF62]">{exp.period}</p>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+          </div>
+
+          {/* Sidebar - Contact */}
+          <div className="space-y-8">
+            <motion.div
+              className="card sticky top-24"
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <h3 className="label mb-6">CONNECT</h3>
+              <div className="space-y-4">
+                <a
+                  href={`mailto:${personalInfo.email}`}
+                  className="flex items-center gap-3 text-body hover:text-[#38FF62] transition-colors break-all"
+                >
+                  <Mail size={18} className="flex-shrink-0" />
+                  {personalInfo.email}
+                </a>
+                <div className="flex gap-3 pt-4">
+                  {socialLinks.map((social) => {
+                    const Icon = social.icon;
+                    return (
+                      <a
+                        key={social.label}
+                        href={social.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="w-10 h-10 border border-[#2a2a2a] flex items-center justify-center text-white hover:border-[#38FF62] hover:text-[#38FF62] transition-all"
+                        aria-label={social.label}
+                      >
+                        <Icon size={18} />
+                      </a>
+                    );
+                  })}
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+
+        {/* Publications & Talks */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mt-16">
+          {/* Publications */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+          >
+            <h3 className="text-regular mb-8 flex items-center gap-3">
+              <BookOpen size={24} className="text-[#38FF62]" />
+              Publications
+            </h3>
+            <div className="space-y-6">
+              {publications.map((pub) => (
+                <div key={pub.id} className="card">
+                  <h4 className="text-body font-semibold mb-3">{pub.title}</h4>
+                  <p className="label-small mb-2">{pub.authors}</p>
+                  <p className="text-body mb-4">
+                    {pub.venue}, {pub.year}
+                  </p>
+                  {pub.link && (
+                    <a
+                      href={pub.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="btn-ghost p-0 flex items-center gap-2"
+                    >
+                      <ExternalLink size={14} /> READ PAPER
+                    </a>
+                  )}
+                </div>
               ))}
             </div>
-          </section>
+          </motion.div>
+
+          {/* Talks */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+          >
+            <h3 className="text-regular mb-8 flex items-center gap-3">
+              <Award size={24} className="text-[#38FF62]" />
+              Talks & Demos
+            </h3>
+            <div className="space-y-6">
+              {talks.map((talk) => (
+                <div key={talk.id} className="card">
+                  <h4 className="text-body font-semibold mb-3">{talk.title}</h4>
+                  <p className="text-body mb-2">{talk.event}</p>
+                  <p className="label-small text-[#38FF62]">{talk.date}</p>
+                </div>
+              ))}
+            </div>
+          </motion.div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
-export default About;
+export default AboutSection;

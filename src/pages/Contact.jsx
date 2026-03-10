@@ -1,181 +1,94 @@
-import React, { useState } from 'react';
-import { Mail, Linkedin, Github, MapPin } from 'lucide-react';
+import React from 'react';
+import { Mail } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { personalInfo } from '../mockData';
 
-const Contact = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: ''
-  });
-
-  const [status, setStatus] = useState('');
-
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Mock submission
-    setStatus('Message sent successfully! (Mock)');
-    setFormData({ name: '', email: '', subject: '', message: '' });
-    setTimeout(() => setStatus(''), 3000);
-  };
-
+const ContactSection = () => {
   return (
-    <div className="min-h-screen bg-[#0A0A0A] text-white">
-      <div className="pt-32 pb-20 px-6">
-        <div className="container mx-auto max-w-5xl">
-          {/* Header */}
-          <div className="mb-16">
-            <span className="text-xs font-mono uppercase tracking-widest text-[#00FF88]">
-              Get In Touch
-            </span>
-            <h1 className="text-5xl md:text-6xl font-bold mt-4 mb-6">Contact</h1>
-            <p className="text-xl text-white/70 leading-relaxed">
-              Interested in collaboration, job opportunities, or just want to discuss robotics? Reach out!
+    <section id="contact" className="relative py-24">
+      <div className="container mx-auto px-6">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="mb-12"
+        >
+          <p className="label mb-4">GET IN TOUCH</p>
+          <h2 className="title-big">CONTACT</h2>
+        </motion.div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          {/* Contact Info */}
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="space-y-8"
+          >
+            <div>
+              <h3 className="text-regular mb-8">Let's Build Something Together</h3>
+              <p className="text-body mb-8">
+                I'm always open to discussing new projects, research collaborations, or opportunities in robotics and AI.
+              </p>
+            </div>
+
+            <div className="card">
+              <h4 className="label mb-6">CONTACT INFORMATION</h4>
+              <div className="space-y-4">
+                <div>
+                  <p className="label-small mb-2">EMAIL</p>
+                  <a
+                    href={`mailto:${personalInfo.email}`}
+                    className="text-body hover:text-[#38FF62] transition-colors break-all"
+                  >
+                    {personalInfo.email}
+                  </a>
+                </div>
+                <div>
+                  <p className="label-small mb-2">LOCATION</p>
+                  <p className="text-body">{personalInfo.location}</p>
+                </div>
+                <div>
+                  <p className="label-small mb-2">RESPONSE TIME</p>
+                  <p className="text-body">Typically within 24-48 hours</p>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* CTA Card */}
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="card text-center py-16 flex flex-col items-center justify-center"
+          >
+            <Mail size={48} className="text-[#38FF62] mb-6" />
+            <h3 className="text-regular mb-6">Ready to Collaborate?</h3>
+            <p className="text-body max-w-md mx-auto mb-8">
+              Whether it's a new project, research opportunity, or just a conversation about robotics and AI.
             </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-            {/* Contact Form */}
-            <div className="md:col-span-2">
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div>
-                    <label className="block text-sm font-mono uppercase tracking-wide text-white/70 mb-2">
-                      Name
-                    </label>
-                    <input 
-                      type="text"
-                      name="name"
-                      value={formData.name}
-                      onChange={handleChange}
-                      required
-                      className="w-full bg-[#141414] border border-white/20 px-4 py-3 focus:border-[#00FF88] focus:outline-none transition-colors"
-                      placeholder="Your Name"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-mono uppercase tracking-wide text-white/70 mb-2">
-                      Email
-                    </label>
-                    <input 
-                      type="email"
-                      name="email"
-                      value={formData.email}
-                      onChange={handleChange}
-                      required
-                      className="w-full bg-[#141414] border border-white/20 px-4 py-3 focus:border-[#00FF88] focus:outline-none transition-colors"
-                      placeholder="your.email@example.com"
-                    />
-                  </div>
-                </div>
-                <div>
-                  <label className="block text-sm font-mono uppercase tracking-wide text-white/70 mb-2">
-                    Subject
-                  </label>
-                  <input 
-                    type="text"
-                    name="subject"
-                    value={formData.subject}
-                    onChange={handleChange}
-                    required
-                    className="w-full bg-[#141414] border border-white/20 px-4 py-3 focus:border-[#00FF88] focus:outline-none transition-colors"
-                    placeholder="Job Opportunity / Collaboration / Question"
-                  />
-                </div>
-                <div>
-                  <label className="block text-sm font-mono uppercase tracking-wide text-white/70 mb-2">
-                    Message
-                  </label>
-                  <textarea 
-                    name="message"
-                    value={formData.message}
-                    onChange={handleChange}
-                    required
-                    rows="6"
-                    className="w-full bg-[#141414] border border-white/20 px-4 py-3 focus:border-[#00FF88] focus:outline-none transition-colors resize-none"
-                    placeholder="Your message here..."
-                  />
-                </div>
-                <button 
-                  type="submit"
-                  className="w-full md:w-auto px-8 py-3 bg-[#00FF88] text-black font-mono text-sm uppercase tracking-wide hover:bg-[#00DD77] transition-colors"
-                >
-                  Send Message
-                </button>
-                {status && (
-                  <p className="text-[#00FF88] text-sm font-mono mt-4">{status}</p>
-                )}
-              </form>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <a href={`mailto:${personalInfo.email}`} className="btn-accent">
+                SEND EMAIL
+              </a>
+              <a
+                href={personalInfo.resume}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-primary"
+              >
+                DOWNLOAD CV
+              </a>
             </div>
-
-            {/* Contact Info */}
-            <div className="space-y-6">
-              <div className="bg-[#141414] border border-white/10 p-6">
-                <h3 className="text-xs font-mono uppercase tracking-widest text-white/50 mb-4">
-                  Direct Contact
-                </h3>
-                <div className="space-y-4">
-                  <a 
-                    href="mailto:engineer@robotics.edu"
-                    className="flex items-start text-white/70 hover:text-[#00FF88] transition-colors"
-                  >
-                    <Mail size={20} className="mr-3 mt-1 flex-shrink-0" />
-                    <span className="break-all">engineer@robotics.edu</span>
-                  </a>
-                  <div className="flex items-start text-white/70">
-                    <MapPin size={20} className="mr-3 mt-1 flex-shrink-0" />
-                    <span>IIT Gandhinagar<br/>Gandhinagar, Gujarat<br/>India</span>
-                  </div>
-                </div>
-              </div>
-
-              <div className="bg-[#141414] border border-white/10 p-6">
-                <h3 className="text-xs font-mono uppercase tracking-widest text-white/50 mb-4">
-                  Social Links
-                </h3>
-                <div className="space-y-3">
-                  <a 
-                    href="https://github.com/username"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center text-white/70 hover:text-[#00FF88] transition-colors"
-                  >
-                    <Github size={20} className="mr-3" />
-                    <span>github.com/username</span>
-                  </a>
-                  <a 
-                    href="https://linkedin.com/in/username"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center text-white/70 hover:text-[#00FF88] transition-colors"
-                  >
-                    <Linkedin size={20} className="mr-3" />
-                    <span>linkedin.com/in/username</span>
-                  </a>
-                </div>
-              </div>
-
-              <div className="bg-[#141414] border border-white/10 p-6">
-                <h3 className="text-xs font-mono uppercase tracking-widest text-white/50 mb-4">
-                  Response Time
-                </h3>
-                <p className="text-sm text-white/70 leading-relaxed">
-                  I typically respond within 24-48 hours. For urgent inquiries, please mention it in the subject line.
-                </p>
-              </div>
-            </div>
-          </div>
+          </motion.div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
-export default Contact;
+export default ContactSection;

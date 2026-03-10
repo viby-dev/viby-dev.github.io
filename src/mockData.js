@@ -224,8 +224,204 @@ Achieved zero collisions in 1000+ test runs with 98% path tracking accuracy.`,
   }
 ];
 
+const unstarredProjects = [
+  {
+    id: 4,
+    slug: "slam-quadruped",
+    title: "SLAM on Unitree Go2 Quadruped",
+    shortDesc: "Simultaneous Localization and Mapping pipeline deployed on the Unitree Go2 quadruped robot for autonomous indoor navigation.",
+    fullDescription: `Implemented a full SLAM pipeline on the Unitree Go2 quadruped using LiDAR and IMU fusion for robust indoor mapping and navigation.
+
+## Pipeline
+- LiDAR-inertial odometry using FAST-LIO2
+- Real-time 3D map building
+- Autonomous waypoint navigation via Nav2
+- Terrain-adaptive gait switching
+
+## Outcome
+Successfully navigated a 500m² lab environment with under 3cm localization error at runtime.`,
+    category: ["Vision", "Control"],
+    tech: ["ROS 2", "Python", "C++", "FAST-LIO2", "Nav2", "LiDAR"],
+    media: [
+      {
+        type: "image",
+        url: "https://images.unsplash.com/photo-1561557944-6e7860d1a7eb?w=800",
+        caption: "Go2 quadruped navigating lab"
+      },
+      {
+        type: "image",
+        url: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800",
+        caption: "3D map output from SLAM pipeline"
+      }
+    ],
+    metrics: {
+      performance: "<3cm localization error",
+      accuracy: "500m² coverage",
+      custom: [
+        { label: "Map Update Rate", value: "10 Hz" },
+        { label: "Sensor Fusion", value: "LiDAR + IMU" }
+      ]
+    },
+    featured: false,
+    links: [
+      { type: "github", url: "https://github.com/username/slam-go2", label: "Code" }
+    ],
+    details: {
+      duration: "3 months",
+      team: "Solo project",
+      status: "Completed",
+      tags: ["SLAM", "Quadruped", "LiDAR", "Navigation"]
+    }
+  },
+  {
+    id: 5,
+    slug: "vlm-task-planning",
+    title: "VLM-Based Task Planning for Manipulation",
+    shortDesc: "Using Vision-Language Models to interpret natural language commands and plan robotic manipulation sequences on the SO-101 arm.",
+    fullDescription: `Integrated a Vision-Language Model (VLM) frontend with the SO-101 robotic arm to enable natural language task specification and autonomous execution.
+
+## Approach
+- GPT-4V for scene understanding and task decomposition
+- Geometric task planner for motion primitive sequencing
+- Real-time visual feedback loop for error correction
+
+## Results
+Achieved 87% success rate on novel pick-and-place instructions from zero-shot natural language prompts.`,
+    category: ["AI/ML", "Vision"],
+    tech: ["Python", "GPT-4V", "ROS 2", "OpenCV", "MoveIt"],
+    media: [
+      {
+        type: "image",
+        url: "https://images.unsplash.com/photo-1527430253228-e93688616381?w=800",
+        caption: "SO-101 arm executing VLM-planned task"
+      },
+      {
+        type: "youtube",
+        url: "https://www.youtube.com/watch?v=example3",
+        caption: "Live demo of natural language commands"
+      }
+    ],
+    metrics: {
+      performance: "87% zero-shot success",
+      accuracy: "Novel instruction generalization",
+      custom: [
+        { label: "Planning Latency", value: "~1.2s" },
+        { label: "LLM Backend", value: "GPT-4V" }
+      ]
+    },
+    featured: false,
+    links: [
+      { type: "github", url: "https://github.com/username/vlm-manipulation", label: "Code" },
+      { type: "paper", url: "https://arxiv.org/example", label: "Paper" }
+    ],
+    details: {
+      duration: "5 months",
+      team: "2 researchers",
+      status: "Ongoing",
+      tags: ["VLM", "Task Planning", "Manipulation", "LLM"]
+    }
+  },
+  {
+    id: 6,
+    slug: "stm32-motor-controller",
+    title: "STM32 FOC Motor Controller",
+    shortDesc: "Custom Field-Oriented Control motor driver on STM32 for high-torque brushless DC motors used in robotic joint actuation.",
+    fullDescription: `Designed and implemented a Field-Oriented Control (FOC) motor driver from scratch on STM32F4 for BLDC motors used in robotic joints.
+
+## Implementation
+- 3-phase PWM generation at 20kHz
+- Clarke and Park transforms in real-time
+- PI current controllers tuned via Ziegler-Nichols
+- CAN bus communication for multi-axis coordination
+
+## Results
+Achieved smooth torque control with <2% ripple at full load, suitable for compliant robotic joint control.`,
+    category: ["Embedded", "Control"],
+    tech: ["C", "STM32", "CAN Bus", "FOC", "MATLAB"],
+    media: [
+      {
+        type: "image",
+        url: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800",
+        caption: "Custom PCB for FOC controller"
+      },
+      {
+        type: "image",
+        url: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=800",
+        caption: "Torque response waveforms"
+      }
+    ],
+    metrics: {
+      performance: "<2% torque ripple",
+      accuracy: "20kHz switching freq",
+      custom: [
+        { label: "Control Loop", value: "10kHz" },
+        { label: "Interface", value: "CAN Bus" }
+      ]
+    },
+    featured: false,
+    links: [
+      { type: "github", url: "https://github.com/username/stm32-foc", label: "Firmware" }
+    ],
+    details: {
+      duration: "2 months",
+      team: "Solo project",
+      status: "Completed",
+      tags: ["FOC", "STM32", "Embedded", "Motor Control"]
+    }
+  },
+  {
+    id: 7,
+    slug: "swarm-formation-control",
+    title: "Swarm Formation Control with TurtleBot3",
+    shortDesc: "Distributed swarm algorithm enabling a fleet of TurtleBot3 robots to maintain dynamic formations and respond to leader commands.",
+    fullDescription: `Developed a decentralized swarm control system for a fleet of TurtleBot3 robots, enabling real-time formation switching and leader-follower coordination.
+
+## Algorithm
+- Consensus-based formation control
+- Distributed leader election
+- Formation switching via finite state machine
+- Obstacle avoidance integrated via potential fields
+
+## Outcome
+Demonstrated 5-robot fleet maintaining formation at 0.5m/s with formation error under 5cm.`,
+    category: ["Multi-Robot", "Control"],
+    tech: ["Python", "ROS 2", "TurtleBot3", "Gazebo", "NumPy"],
+    media: [
+      {
+        type: "image",
+        url: "https://images.unsplash.com/photo-1563968743333-044cef800494?w=800",
+        caption: "TurtleBot3 swarm in V-formation"
+      },
+      {
+        type: "youtube",
+        url: "https://www.youtube.com/watch?v=example4",
+        caption: "Formation switching demo"
+      }
+    ],
+    metrics: {
+      performance: "<5cm formation error",
+      accuracy: "5-robot fleet at 0.5m/s",
+      custom: [
+        { label: "Robots", value: "5 TurtleBot3" },
+        { label: "Formations", value: "4 patterns" }
+      ]
+    },
+    featured: false,
+    links: [
+      { type: "github", url: "https://github.com/username/swarm-turtlebot", label: "Code" }
+    ],
+    details: {
+      duration: "3 months",
+      team: "2 researchers",
+      status: "Completed",
+      tags: ["Swarm", "Formation Control", "TurtleBot3", "Distributed"]
+    }
+  }
+];
+
 export const allProjects = [
   ...featuredProjects,
+  ...unstarredProjects
   // Add more projects with same enhanced structure...
 ];
 

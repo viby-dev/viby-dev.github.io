@@ -1,6 +1,7 @@
 import React from 'react';
 import { ExternalLink, FileText } from 'lucide-react';
-import { mockPublications, mockTalks } from '../mockData';
+import { publications, talks } from '../mockData';
+// import { personalInfo, about, mockPublications as publications, mockTalks as talks } from '../mockData';
 
 const Publications = () => {
   return (
@@ -15,14 +16,14 @@ const Publications = () => {
             <h1 className="text-5xl md:text-6xl font-bold mt-4 mb-6">Publications</h1>
             <p className="text-xl text-white/70 leading-relaxed">
               Peer-reviewed papers, preprints, and conference presentations in robotics and AI.
-            </p>
+            </p>  
           </div>
 
           {/* Publications List */}
           <section className="mb-16">
             <h2 className="text-2xl font-bold mb-8">Papers</h2>
             <div className="space-y-6">
-              {mockPublications.map((pub) => (
+              {publications.map((pub) => (
                 <div 
                   key={pub.id}
                   className="bg-[#141414] border border-white/10 p-6 hover:border-[#00FF88]/50 transition-all"
@@ -69,7 +70,7 @@ const Publications = () => {
           <section>
             <h2 className="text-2xl font-bold mb-8">Talks & Demos</h2>
             <div className="space-y-6">
-              {mockTalks.map((talk) => (
+              {talks.map((talk) => (
                 <div 
                   key={talk.id}
                   className="bg-[#141414] border border-white/10 p-6"

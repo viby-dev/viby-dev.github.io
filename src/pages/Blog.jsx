@@ -1,7 +1,18 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Clock } from 'lucide-react';
-import { mockBlogPosts } from '../mockData';
+// import { blogPosts } from '../mockData';
+
+export const blogPosts = [
+  {
+    id: 1,
+    title: "Getting Started with ROS 2",
+    excerpt: "A practical introduction to ROS 2 for robotics developers.",
+    date: "2024-01-15",
+    readTime: "8 min read",
+    tags: ["ROS2", "Robotics"]
+  }
+];
 
 const Blog = () => {
   return (
@@ -21,7 +32,7 @@ const Blog = () => {
 
           {/* Blog Posts */}
           <div className="space-y-6">
-            {mockBlogPosts.map((post) => (
+            {blogPosts.map((post) => (
               <article 
                 key={post.id}
                 className="bg-[#141414] border border-white/10 p-8 hover:border-[#00FF88]/50 transition-all"

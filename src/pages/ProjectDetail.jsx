@@ -3,12 +3,30 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { ArrowLeft, Github, Play, ExternalLink, FileText, LineChart, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { allProjects } from '../mockData';
+import { useEffect } from 'react';
 
 const ProjectDetail = () => {
   const { slug } = useParams();
   const navigate = useNavigate();
   const project = allProjects.find(p => p.slug === slug);
   const [selectedMedia, setSelectedMedia] = useState(null);
+  
+  useEffect(() => {
+    const savedPosition = sessionStorage.getItem(`scroll-${slug}`);
+    if (savedPosition) {
+      setTimeout(() => {
+        window.scrollTo({ top: parseInt(savedPosition), behavior: 'instant' });
+      }, 50);
+    } else {
+      setTimeout(() => {
+        window.scrollTo({ top: 0, behavior: 'instant' });
+      }, 50);
+    }
+
+    return () => {
+      sessionStorage.setItem(`scroll-${slug}`, window.scrollY);
+    };
+  }, [slug]);
 
   if (!project) {
     return (
@@ -52,15 +70,16 @@ const ProjectDetail = () => {
   };
 
   const handleBackToProjects = () => {
+    const homeScroll = sessionStorage.getItem('home-scroll');
     navigate('/');
     setTimeout(() => {
-      const element = document.getElementById('projects');
-      if (element) {
-        const offsetTop = element.offsetTop - 80;
-        window.scrollTo({
-          top: offsetTop,
-          behavior: 'smooth'
-        });
+      if (homeScroll) {
+        window.scrollTo({ top: parseInt(homeScroll), behavior: 'instant' });
+      } else {
+        const element = document.getElementById('projects');
+        if (element) {
+          window.scrollTo({ top: element.offsetTop - 80, behavior: 'smooth' });
+        }
       }
     }, 100);
   };
