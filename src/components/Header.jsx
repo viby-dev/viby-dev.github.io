@@ -191,7 +191,7 @@ const Header = () => {
               style={{ fontFamily: 'var(--font-mono)', fontSize: '13px', letterSpacing: '0.08em', textTransform: 'uppercase' }}
             >
               <FileText size={16} />
-              RESUME
+              CV
             </a>
             <a
               href="mailto:alex@robotics.edu"

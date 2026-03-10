@@ -45,7 +45,7 @@ const Projects = () => {
               onClick={() => setActiveFilter(category)}
               className={`label px-4 py-3 border transition-all ${
                 activeFilter === category
-                  ? 'border-[#38FF62] bg-[#38FF62] text-[#0a0a0a]'
+                  ? 'border-[#38FF62] bg-[#38FF62]/10 text-[#38FF62]'
                   : 'border-[#2a2a2a] hover:border-[#38FF62]'
               }`}
               whileHover={{ scale: 1.05 }}
@@ -73,9 +73,9 @@ const Projects = () => {
                 >
                   {/* Featured Ribbon */}
                   {project.featured && (
-                    <div className="absolute top-4 right-4 z-10 label-small px-3 py-2 bg-[#38FF62] text-[#0a0a0a] flex items-center gap-2">
-                      <Star size={12} fill="#0a0a0a" />
-                      FEATURED
+                    <div className="absolute top-4 right-4 z-10 p-1.5 bg-transparent border border-[#38FF62] flex items-center">
+                      <Star size={14} fill="#38FF62" stroke="#38FF62" />
+                      {/* FEATURED */}
                     </div>
                   )}
 

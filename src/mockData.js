@@ -6,8 +6,8 @@ export const personalInfo = {
   github: "https://github.com/username",
   linkedin: "https://linkedin.com/in/username",
   scholar: "https://scholar.google.com/",
-  resume: "/resume.pdf",
-  profileImage: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400"
+  resume: require("./assets/CV.pdf"),
+  profileImage: require("./assets/bhavish.png")
 };
 
 export const about = {
