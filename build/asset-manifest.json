@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/static/css/main.46e95220.css",
+    "main.js": "/static/js/main.28b290f2.js",
+    "static/media/bhavish.png": "/static/media/bhavish.5ebd60531b215c4e7487.png",
+    "static/media/CV.pdf": "/static/media/CV.6867116c0952e6f6fa0e.pdf",
+    "index.html": "/index.html",
+    "main.46e95220.css.map": "/static/css/main.46e95220.css.map",
+    "main.28b290f2.js.map": "/static/js/main.28b290f2.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.46e95220.css",
+    "static/js/main.28b290f2.js"
+  ]
+}
