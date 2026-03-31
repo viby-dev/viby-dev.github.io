@@ -1,5 +1,5 @@
 import React from 'react';
-import { Github, Linkedin, BookOpen, Mail, ExternalLink, GraduationCap, Briefcase, Award } from 'lucide-react';
+import { Github, Linkedin, BookOpen, Mail, ExternalLink, GraduationCap, Briefcase, Award, MonitorPlay } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { personalInfo, about, publications, talks } from '../mockData';
 
@@ -102,6 +102,7 @@ const AboutSection = () => {
                   <div key={index} className="card">
                     <h4 className="label mb-2">{exp.role}</h4>
                     <p className="text-body mb-1">{exp.organization}</p>
+                    {exp.location && <p className="label-small text-white/50 mb-1">{exp.location}</p>}
                     <p className="label-small text-[#38FF62]">{exp.period}</p>
                   </div>
                 ))}
@@ -197,17 +198,26 @@ const AboutSection = () => {
               Talks & Demos
             </h3>
             <div className="space-y-6">
-            {talks.map((talk) => (
-              <div
-                key={talk.id}
-                onClick={() => talk.link && window.open(talk.link, '_blank')}
-                className={`card block transition-all ${talk.link ? 'hover:border-[#38FF62] cursor-pointer' : 'cursor-default'}`}
-              >
-                <h4 className="text-body font-semibold mb-3">{talk.title}</h4>
-                <p className="text-body mb-2">{talk.event}</p>
-                <p className="label-small text-[#38FF62]">{talk.date}</p>
-              </div>
-            ))} 
+              {talks.map((talk) => (
+                <div
+                  key={talk.id}
+                  className="card block transition-all"
+                >
+                  <h4 className="text-body font-semibold mb-3">{talk.title}</h4>
+                  <p className="text-body mb-2">{talk.event}</p>
+                  <p className="label-small text-[#38FF62] mb-4">{talk.date}</p>
+                  {talk.link && (
+                    <a
+                      href={talk.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="btn-ghost p-0 flex items-center gap-2"
+                    >
+                      <MonitorPlay size={14} /> WATCH TALK
+                    </a>
+                  )}
+                </div>
+              ))}
             </div>
           </motion.div>
         </div>

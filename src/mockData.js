@@ -1,6 +1,7 @@
 export const personalInfo = {
   name: "Bhavish Rai B",
-  tagline: "Robotics engineer designing system-level architectures for coordinated multi-robot autonomy - bridging language-driven reasoning, perception, and ROS2 execution into deployable real-world systems.",  email: "bhavishraib@gmail.com",
+  tagline: "Programming and building robots that can operate effectively in complex and real world applications",
+  email: "bhavishraib@gmail.com",
   footerTagline: "Building robots that reason, adapt, and act.",
   location: "IIT Gandhinagar, India",
   github: "https://github.com/braib",
@@ -11,9 +12,9 @@ export const personalInfo = {
 };
 
 export const about = {
-bio: `I'm a robotics engineer building intelligent systems that bridge the gap between AI research and real-world deployment. My work focuses on multi-robot coordination - connecting LLM-based task planning, VLM perception, and ROS2 execution into systems that actually work on real hardware.
+bio: `I'm a robotics engineer building intelligent systems that bridge the gap between AI research and real-world deployment. My work focuses on multi-robot coordination connecting LLM-based task planning, VLM perception, and ROS2 execution into systems that actually work on real hardware.
 
-Currently a Program Assistant at IIT Gandhinagar, where I work with platforms like Unitree Go2, TurtleBot3, and SO-101 arms. My research on CoMuRoS - a hierarchical multi-robot architecture - has been published at IROS 2025 and ArXiv.
+Currently a Program Assistant at IIT Gandhinagar, where I work with platforms like Unitree Go2, TurtleBot3, and SO-101 arms. My research on CoMuRoS a hierarchical multi-robot architecture - has been published at IROS 2025 and ArXiv.
 
 I care about robots that don't just simulate well, but deploy reliably.`,
   education: [
@@ -21,29 +22,38 @@ I care about robots that don't just simulate well, but deploy reliably.`,
       degree: "Bachelor of Engineering in Robotics and Automation ",
       institution: "Sahyadri College of Engineering and Management Adyar, Mangaluru",
       year: "2021-2025",
-      marks: "CGPA: 8.5 / 10"
+      marks: "CGPA: 8.31 / 10"
     },
     {
       degree: "Pre-University Education (PCMCs)",
       institution: "Sri Rama Pre-University College, Kalladka",
       year: "2019-2021",
-      marks: "92%"
+      marks: "86%"
+    },
+      {
+      degree: "Secondary Education (SSLC)",
+      institution: "Govt. High School Beliyurukatte, Puttur",
+      year: "2019",
+      marks: "84.64%"
     }
   ],
   experience: [
     {
       role: "Program Assistant - I ",
       organization: "IIT Gandhinagar Robotics Lab",
+      location: 'Gannghinagar, Gujarat',
       period: "2025 June -Present"
     },
     {
       role: "Robotics Research Intern",
       organization: "IIT Gandhinagar Robotics Lab",
+      location: 'Gannghinagar, Gujarat',
       period: "January 2025 - May 2025"
     },
     {
       role: "Research Intern",
       organization: "Technical Career Education",
+      location: 'Mangaluru, Karnataka',
       period: "October 2023 - November 2023"
     }
   ]
@@ -52,185 +62,215 @@ I care about robots that don't just simulate well, but deploy reliably.`,
 export const featuredProjects = [
   {
     id: 1,
-    slug: "isaac-sim-manipulation",
-    title: "Isaac Sim Robotic Manipulation",
-    shortDesc: "Advanced robotic manipulation training using NVIDIA Isaac Sim with reinforcement learning for precise object handling and assembly tasks.",
+    slug: "comuros",
+    title: "CoMuRoS: Collaborative Multi-Robot System",
+    shortDesc: "Developed a generalizable hierarchical architecture for LLM-driven task planning and event-driven replanning in heterogeneous multi-robot teams, unifying centralized deliberation with decentralized execution.",
     
-    // Enhanced: Full description with markdown support
-    fullDescription: `This project implements advanced robotic manipulation using NVIDIA Isaac Sim for training reinforcement learning agents. The system achieves state-of-the-art performance in pick-and-place tasks through sim-to-real transfer.
+    fullDescription: `CoMuRoS is a hierarchical multi-robot architecture that bridges LLM-based task planning with real ROS2 hardware execution for heterogeneous robot teams.
 
-## Key Features
-- End-to-end RL training pipeline using PPO
-- Photorealistic simulation environment
-- Domain randomization for robust sim-to-real transfer
-- Real-time inference on physical robots
+## Task Manager LLM
+Implemented a Task Manager LLM for natural-language goal interpretation and dynamic task allocation using static rules and contextual information including task history, robot status, and runtime events. Tasks are classified into four categories: Independent, Sequential, Coordinated, and Infeasible.
 
-## Technical Approach
-The training pipeline leverages Isaac Gym for parallel environment simulation, enabling 40% faster training compared to traditional methods. We implemented custom reward shaping and curriculum learning strategies to achieve a 94% success rate on complex manipulation tasks.`,
+## Local Robot LLMs
+Designed local robot LLMs that compose executable Python code from primitive ROS2 skills, with onboard VLM-based perception (OwlViT + GPT-4.1 VQA) for continuous event monitoring and classification.
 
-    category: ["AI/ML", "Vision"],
-    tech: ["Python", "Isaac Sim", "PyTorch", "ROS 2", "USD"],
+## Hardware Results
+- 90% collaborative object recovery success (9/10 trials)
+- 100% coordinated transport success (8/8 trials)
+- 100% human-assisted recovery success (5/5 trials)
+
+## Benchmarking
+Evaluated across 22 diverse scenarios (3 tasks each) with 8 LLMs. Achieved average correctness of 0.91 with Grok-3. Replanning dataset achieved perfect correctness (1.0) across all 5 scenarios.
+
+## Key Capabilities
+Demonstrated autonomous recovery from disruptive events, filtering of irrelevant distractions, and emergent human-robot cooperation through runtime replanning. Supports anytime human interaction — feedback, corrections, interruptions, or new commands.
+
+## Stack
+Developed using ROS2 Humble with Python, simulated in Gazebo Classic and Ignition Fortress. Tested on Unitree Go2, TurtleBot3 Burger, TurtleBot3 Waffle Pi with OpenManipulator-X.`,
+
+    category: ["AI/ML", "Multi-Robot", "Control"],
+    tech: ["Python", "ROS2", "Gazebo Classic", "Ignition Fortress", "LLM", "VLM"],
     
-    // Enhanced: Multiple media items
     media: [
       {
-        type: "image",
-        url: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=800",
-        caption: "Isaac Sim training environment"
+        type: "youtube",
+        url: "https://youtu.be/W_0TnEH_UwU",
+        caption: "Multi-robot collaborative object recovery with event-driven replanning"
       },
       {
         type: "youtube",
-        url: "https://www.youtube.com/watch?v=dQw4w9WgXcQ", // Replace with actual video
-        caption: "Demo of robotic manipulation"
+        url: "https://youtu.be/7QZDq5MSq1A",
+        caption: "Human-formation collaboration experiment"
       },
       {
-        type: "image",
-        url: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800",
-        caption: "Real robot deployment results"
+        type: "youtube",
+        url: "https://youtu.be/qp81etRRkfg",
+        caption: "Hospital scenario: anytime human interruption and replanning"
+      },
+      {
+        type: "youtube",
+        url: "https://youtu.be/RCi28zFyGT4",
+        caption: "Disaster relief scenario simulation"
       }
     ],
     
     metrics: {
-      performance: "40% faster training",
-      accuracy: "94% success rate",
+      performance: "0.91 avg correctness (Grok-3)",
+      accuracy: "9/10 collaborative recovery",
       custom: [
-        { label: "Training Episodes", value: "10M+" },
-        { label: "Sim-to-Real Gap", value: "<5%" }
+        { label: "Scenarios Benchmarked", value: "22" },
+        { label: "LLMs Evaluated", value: "8" },
+        { label: "Replanning Correctness", value: "1.0" },
+        { label: "Coordinated Transport", value: "8/8" }
       ]
     },
     
     featured: true,
     
-    // Enhanced: Flexible links with custom labels
     links: [
-      { type: "github", url: "https://github.com/username/isaac-sim-manipulation", label: "Source Code" },
-      { type: "demo", url: "https://demo.com", label: "Live Demo" },
-      { type: "custom", url: "https://docs.com", label: "Documentation", icon: "FileText" }
+      { type: "paper", url: "https://arxiv.org/pdf/2511.22354", label: "ArXiv Paper" },
+      { type: "website", url: "https://comuros.github.io", label: "Website" },
+      { type: "demo", url: "https://youtu.be/PTaiFttYWuo", label: "Demo Video" }
     ],
     
-    // Enhanced: Additional details
     details: {
-      duration: "6 months",
-      team: "Solo project",
-      status: "Completed",
-      tags: ["Reinforcement Learning", "Sim2Real", "Manipulation"]
+      duration: "Jan 2025 - Present",
+      team: "IIT Gandhinagar — Suraj Borate, Bhavish Rai B, Vipul Pardeshi, Madhu Vadali",
+      status: "Submitted to Autonomous Robots (ArXiv 2025); IROS 2025 Workshop accepted",
+      tags: ["LLM", "Multi-Robot", "ROS2", "Event-Driven Replanning", "Human-Robot Collaboration"]
     }
   },
   {
     id: 2,
-    slug: "groot-finetuning",
-    title: "GR00T Model Fine-tuning",
-    shortDesc: "Fine-tuning NVIDIA's GR00T foundation model for humanoid robot control with custom task-specific behaviors and motion primitives.",
+    slug: "tutorbot",
+    title: "LLM-Driven Bimanual TutorBot",
+    shortDesc: "Built a bimanual social robot from scratch using LeRobot arms and LLMs, capable of communicating through voice and guiding students in assembly tasks using the CoMuRoS architecture as backbone.",
     
-    fullDescription: `Fine-tuned NVIDIA's GR00T foundation model for humanoid robot control, achieving significant improvements in task adaptation speed and motion quality.
+    fullDescription: `A bimanual social tutorbot built from scratch at IIT Gandhinagar, capable of interacting with students through voice and facial expressions while guiding them through assembly tasks.
 
-## Objectives
-- Adapt GR00T for custom manipulation tasks
-- Reduce training time for new behaviors
-- Maintain generalization across task variations
+## Architecture
+Used the CoMuRoS architecture as the backbone, treating the two robotic arms as a multi-robot system. The Task Manager LLM coordinates arm actions while a Socratic-style dialogue system handles student interaction.
 
-## Results
-Successfully reduced adaptation time by 2.5x while maintaining 91% task completion rate across diverse scenarios.`,
+## Hardware
+- Two LeRobot (SO-101) arms as bimanual manipulators
+- Display screen for facial expressions to improve human-robot interaction
+- Microphone input for real-time voice-based queries from students
 
-    category: ["AI/ML", "Control"],
-    tech: ["Python", "GR00T", "Isaac Lab", "PyTorch", "ROS 2"],
+## Capabilities
+- Real-time assistance for students performing assembly tasks
+- Socratic-style verbal guidance and action-based demonstrations
+- Object picking and visual hint demonstration to assist task completion
+- Enabled pick and place using fine-tuned Nvidia GR00T VLA
+
+## Data & Training
+Fabricated 3 LeRobot arms. Performed data collection and finetuning of Nvidia GR00T VLA with successful pick-and-place testing.`,
+
+    category: ["AI/ML", "Multi-Robot"],
+    tech: ["Python", "ROS2", "LLM", "LeRobot", "GR00T", "VLA", "CoMuRoS"],
     
     media: [
       {
-        type: "image",
-        url: "https://images.unsplash.com/photo-1555255707-c07966088b7b?w=800",
-        caption: "GR00T training interface"
+        type: "youtube",
+        url: "https://youtu.be/prKxY8W90FI",
+        caption: "Bimanual TutorBot guiding a student through an assembly task"
       },
       {
         type: "youtube",
-        url: "https://www.youtube.com/watch?v=example",
-        caption: "Humanoid locomotion demo"
+        url: "https://youtu.be/eW0Lzo4yQyo",
+        caption: "Pick and place using fine-tuned GR00T VLA"
       }
     ],
     
     metrics: {
-      performance: "2.5x faster adaptation",
-      accuracy: "91% task completion",
+      performance: "Real-time voice interaction",
+      accuracy: "Successful VLA pick-and-place",
       custom: [
-        { label: "Model Size", value: "1.2B params" },
-        { label: "Fine-tuning Time", value: "12 hours" }
+        { label: "Arms", value: "2x LeRobot SO-101" },
+        { label: "Interaction Mode", value: "Voice + Vision" },
+        { label: "Model", value: "GR00T VLA (fine-tuned)" }
       ]
     },
     
     featured: true,
     
     links: [
-      { type: "github", url: "https://github.com/username/groot-finetuning", label: "Code" },
-      { type: "custom", url: "https://wandb.ai/project", label: "Training Logs", icon: "LineChart" }
+      { type: "demo", url: "https://youtu.be/prKxY8W90FI", label: "Demo Video" },
+      { type: "demo", url: "https://youtu.be/eW0Lzo4yQyo", label: "VLA Demo" },
+      { type: "paper", url: "https://www.youtube.com/watch?v=dA2D3FWFkds", label: "ROSCON 2025 Talk" }
     ],
     
     details: {
-      duration: "4 months",
-      team: "2 researchers",
-      status: "Ongoing",
-      tags: ["Foundation Models", "Transfer Learning", "Humanoids"]
+      duration: "2025",
+      team: "IIT Gandhinagar",
+      status: "Completed — contribution to ROSCON 2025 talk and research publication (under preparation)",
+      tags: ["HRI", "VLA", "GR00T", "Bimanual", "Social Robotics", "LLM"]
     }
   },
   {
     id: 3,
-    slug: "multi-robot-mpc",
-    title: "Multi-Robot MPC Controller",
-    shortDesc: "Model Predictive Control system for coordinated multi-robot navigation with collision avoidance and dynamic obstacle handling.",
+    slug: "poultry-patrol-robot",
+    title: "Poultry Patrol Robot",
+    shortDesc: "An autonomous robot that detects and marks diseased chickens in poultry farms using YOLOv5 computer vision and ROS2, deployed and tested in a real chicken farm in Puttur.",
     
-    fullDescription: `Developed a distributed Model Predictive Control (MPC) system for multi-robot coordination in dynamic environments.
+    fullDescription: `The Poultry Patrol Robot is an autonomous agricultural robot developed as a B.E. final year project at Sahyadri College of Engineering and Management, designed to detect and mark diseased chickens in medium-scale poultry farms.
 
-## System Architecture
-- Decentralized MPC controllers per robot
-- Real-time trajectory optimization
-- Dynamic obstacle avoidance
-- Formation control capabilities
+## Problem
+Manual disease detection in poultry farms is labor-intensive and prone to error. Diseases like Salmonella and Coccidiosis can spread rapidly if not detected early, causing major economic losses.
 
-## Performance
-Achieved zero collisions in 1000+ test runs with 98% path tracking accuracy.`,
+## Robot Design
+Designed a differential drive mobile robot in SolidWorks (full 2D and 3D) with a fabricated chassis using aluminum sheet metal, 3D-printed PLA parts, and black acrylic panels.
 
-    category: ["Multi-Robot", "Control"],
-    tech: ["C++", "Python", "MPC", "ROS 2", "CasADi"],
+## Detection System
+- Raspberry Pi 5 running YOLOv5 for real-time diseased chicken detection via webcam
+- Trained on labeled dataset including movement-based sick chicken detection and faecal matter analysis
+- Detects Salmonella (watery/discolored faeces, weak legs) and Coccidiosis (bloody streaks in stool)
+- mAP@50 achieved: ~0.9
+
+## Actuation
+- Motor control via L298N motor drivers (4x Johnson DC motors at 200 RPM)
+- Servo-actuated color sprayer mechanism to autonomously mark identified diseased birds
+- ESP32 for distributed sensor acquisition and wireless telemetry
+
+## ROS2 Architecture
+Built on ROS2 with dedicated nodes for image capture (/camera → /img), ML inference (/detect → /yolov5/detections), object following (/object_follower), and motor control (/cmd_vel → /move).
+
+## Testing
+Tested in a real chicken farm at Beliyurukatte, Puttur. Plagarism and AI check passed (5% similarity, DrillBit).`,
+
+    category: ["AI/ML", "Embedded", "Vision"],
+    tech: ["Python", "ROS2", "YOLOv5", "Raspberry Pi 5", "ESP32", "SolidWorks", "L298N", "OpenCV"],
     
     media: [
       {
-        type: "image",
-        url: "https://images.unsplash.com/photo-1563968743333-044cef800494?w=800",
-        caption: "Multi-robot formation control"
-      },
-      {
-        type: "image",
-        url: "https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=800",
-        caption: "Trajectory optimization visualization"
-      },
-      {
         type: "youtube",
-        url: "https://www.youtube.com/watch?v=example2",
-        caption: "Real-world deployment"
+        url: "https://youtube.com/shorts/YPX7rrlA688",
+        caption: "Poultry Patrol Robot demo"
       }
     ],
     
     metrics: {
-      performance: "Zero collisions",
-      accuracy: "98% path accuracy",
+      performance: "Real-time detection at farm",
+      accuracy: "mAP@50 ~0.9",
       custom: [
-        { label: "Control Frequency", value: "50 Hz" },
-        { label: "Max Robots", value: "10" }
+        { label: "Detection Targets", value: "Salmonella, Coccidiosis" },
+        { label: "Compute", value: "Raspberry Pi 5" },
+        { label: "Total Cost", value: "~₹28,600" },
+        { label: "Chassis", value: "Aluminium + PLA + Acrylic" }
       ]
     },
     
     featured: true,
     
     links: [
-      { type: "github", url: "https://github.com/username/multi-robot-mpc", label: "Repository" },
-      { type: "demo", url: "https://demo.com", label: "Simulation" },
-      { type: "paper", url: "https://arxiv.org/paper", label: "Paper" }
+      { type: "demo", url: "https://youtube.com/shorts/YPX7rrlA688", label: "Demo Video" },
+      { type: "paper", url: "https://drive.google.com/file/d/1KravVP5PikgnKBbai64hB2Cprnxagvz8/view?usp=sharing", label: "Report" }
     ],
     
     details: {
-      duration: "8 months",
-      team: "3 researchers",
-      status: "Published",
-      tags: ["MPC", "Multi-Agent", "Path Planning"]
+      duration: "May - December 2024",
+      team: "Alfred Jeevan Dsouza, Bhavish Rai B, Nishanth Alva, Pratik Shyam Naik — guided by Mr. Suhas",
+      status: "Completed — B.E. Final Year Project, VTU 2024-25",
+      tags: ["YOLOv5", "ROS2", "AgriRobotics", "Raspberry Pi", "Disease Detection"]
     }
   }
 ];
@@ -238,194 +278,153 @@ Achieved zero collisions in 1000+ test runs with 98% path tracking accuracy.`,
 const unstarredProjects = [
   {
     id: 4,
-    slug: "slam-quadruped",
-    title: "SLAM on Unitree Go2 Quadruped",
-    shortDesc: "Simultaneous Localization and Mapping pipeline deployed on the Unitree Go2 quadruped robot for autonomous indoor navigation.",
-    fullDescription: `Implemented a full SLAM pipeline on the Unitree Go2 quadruped using LiDAR and IMU fusion for robust indoor mapping and navigation.
+    slug: "home-security-system",
+    title: "Automated Home Security System",
+    shortDesc: "IoT-based home security system with facial recognition, real-time visitor identification using Raspberry Pi and Pi Camera, with instant Telegram bot photo notifications.",
+    fullDescription: `Developed as part of the IoT Skill Lab Course at Sahyadri College (2022-23), this system combines facial recognition with ultrasonic distance sensing for real-time home security.
 
-## Pipeline
-- LiDAR-inertial odometry using FAST-LIO2
-- Real-time 3D map building
-- Autonomous waypoint navigation via Nav2
-- Terrain-adaptive gait switching
+## How It Works
+An ultrasonic sensor (HC-SR04) detects when a visitor approaches the doorstep. The Pi Camera captures an image and runs facial recognition. The distance from the doorstep is calculated and the captured image along with contextual information is sent instantly via a Telegram bot.
 
-## Outcome
-Successfully navigated a 500m² lab environment with under 3cm localization error at runtime.`,
-    category: ["Vision", "Control"],
-    tech: ["ROS 2", "Python", "C++", "FAST-LIO2", "Nav2", "LiDAR"],
-    media: [
-      {
-        type: "image",
-        url: "https://images.unsplash.com/photo-1561557944-6e7860d1a7eb?w=800",
-        caption: "Go2 quadruped navigating lab"
-      },
-      {
-        type: "image",
-        url: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800",
-        caption: "3D map output from SLAM pipeline"
-      }
-    ],
+## Hardware
+- Raspberry Pi (Raspbian OS)
+- HC-SR04 Ultrasonic Distance Sensor
+- Raspberry Pi Camera Module
+- Relay Module
+- Jumper wires
+
+## Stack
+Python, Raspberry Pi, Telegram Bot API, OpenCV`,
+    category: ["Embedded", "Vision"],
+    tech: ["Python", "Raspberry Pi", "OpenCV", "Telegram Bot API", "HC-SR04"],
+    media: [],
     metrics: {
-      performance: "<3cm localization error",
-      accuracy: "500m² coverage",
+      performance: "Real-time visitor alerts",
+      accuracy: "Facial recognition + distance estimation",
       custom: [
-        { label: "Map Update Rate", value: "10 Hz" },
-        { label: "Sensor Fusion", value: "LiDAR + IMU" }
+        { label: "Notification", value: "Telegram Bot" },
+        { label: "Sensor", value: "HC-SR04 Ultrasonic" }
       ]
     },
     featured: false,
     links: [
-      { type: "github", url: "https://github.com/username/slam-go2", label: "Code" }
+      { type: "paper", url: "https://drive.google.com/file/d/1ylrT8EdvDLFbRH-sAwgbJo7IO-NR0Syc/view?usp=sharing", label: "Report" }
     ],
     details: {
-      duration: "3 months",
-      team: "Solo project",
-      status: "Completed",
-      tags: ["SLAM", "Quadruped", "LiDAR", "Navigation"]
+      duration: "2022-23",
+      team: "Bhavish Rai B, Charan Raj B H, Adarsha, Aniruddha Wagle K",
+      status: "Completed — IoT Skill Lab Course, TCE Sahyadri",
+      tags: ["IoT", "Facial Recognition", "Raspberry Pi", "Security", "Telegram"]
     }
   },
   {
     id: 5,
-    slug: "vlm-task-planning",
-    title: "VLM-Based Task Planning for Manipulation",
-    shortDesc: "Using Vision-Language Models to interpret natural language commands and plan robotic manipulation sequences on the SO-101 arm.",
-    fullDescription: `Integrated a Vision-Language Model (VLM) frontend with the SO-101 robotic arm to enable natural language task specification and autonomous execution.
+    slug: "helical-spring",
+    title: "Design and Analysis of Helical Spring",
+    shortDesc: "Designed a helical spring in SolidWorks and validated nonlinear FEA results against hand-calculated theoretical values using Wahl's correction factor, with a Python parametric analysis script.",
+    fullDescription: `A mechanical design and analysis assignment from the Department of Mechanical and Robotics Engineering at Sahyadri College (Even Semester 2023-24).
 
-## Approach
-- GPT-4V for scene understanding and task decomposition
-- Geometric task planner for motion primitive sequencing
-- Real-time visual feedback loop for error correction
+## Spring Specifications
+- Wire diameter: 14mm
+- Mean diameter: 70mm
+- Active coils: 10
+- Load: 3768.7 N
+- Rigidity Modulus: 79,000 MPa
 
-## Results
-Achieved 87% success rate on novel pick-and-place instructions from zero-shot natural language prompts.`,
-    category: ["AI/ML", "Vision"],
-    tech: ["Python", "GPT-4V", "ROS 2", "OpenCV", "MoveIt"],
-    media: [
-      {
-        type: "image",
-        url: "https://images.unsplash.com/photo-1527430253228-e93688616381?w=800",
-        caption: "SO-101 arm executing VLM-planned task"
-      },
-      {
-        type: "youtube",
-        url: "https://www.youtube.com/watch?v=example3",
-        caption: "Live demo of natural language commands"
-      }
-    ],
+## Theoretical Solution
+Used Wahl's correction factor (k = 1.3105, spring index C = 5) to compute shear stress (329.89 N/mm²) and deflection (35mm).
+
+## FEA Validation (SolidWorks Nonlinear)
+- Deflection: 35.4mm (1.14% error)
+- Shear stress: 397.2 MPa (22.36% error — expected due to stress concentration effects in nonlinear FEA)
+
+## Python Parametric Analysis
+Developed a script to analyze the effect of mean diameter (55-85mm) on induced shear stress, showing an inverse relationship as diameter increases.`,
+    category: ["Mechanical", "Simulation"],
+    tech: ["SolidWorks", "Python", "FEA", "Matplotlib"],
+    media: [],
     metrics: {
-      performance: "87% zero-shot success",
-      accuracy: "Novel instruction generalization",
+      performance: "1.14% deflection error",
+      accuracy: "FEA vs Theoretical validated",
       custom: [
-        { label: "Planning Latency", value: "~1.2s" },
-        { label: "LLM Backend", value: "GPT-4V" }
+        { label: "Load", value: "3768.7 N" },
+        { label: "Spring Index", value: "5" },
+        { label: "Deflection Error", value: "1.14%" }
       ]
     },
     featured: false,
     links: [
-      { type: "github", url: "https://github.com/username/vlm-manipulation", label: "Code" },
-      { type: "paper", url: "https://arxiv.org/example", label: "Paper" }
+      { type: "paper", url: "https://drive.google.com/file/d/1S9o_yvCXo7H9PTYfdTZkcSfT5MQMDo2H/view?usp=sharing", label: "Report" }
     ],
     details: {
-      duration: "5 months",
-      team: "2 researchers",
-      status: "Ongoing",
-      tags: ["VLM", "Task Planning", "Manipulation", "LLM"]
+      duration: "Even Semester 2023-24",
+      team: "Anujith R Shetty, Ashika Shettigar, Ashish S Talekar, Bhavish Rai B",
+      status: "Completed",
+      tags: ["SolidWorks", "FEA", "Spring Design", "Python", "Mechanical"]
     }
   },
   {
     id: 6,
-    slug: "stm32-motor-controller",
-    title: "STM32 FOC Motor Controller",
-    shortDesc: "Custom Field-Oriented Control motor driver on STM32 for high-torque brushless DC motors used in robotic joint actuation.",
-    fullDescription: `Designed and implemented a Field-Oriented Control (FOC) motor driver from scratch on STM32F4 for BLDC motors used in robotic joints.
+    slug: "farm-water-pump",
+    title: "Automated Farm Water Pump System",
+    shortDesc: "IoT-based smart irrigation system automating water pump control based on real-time soil moisture data with Adafruit IO dashboard and IFTTT email notifications.",
+    fullDescription: `Designed an IoT-based smart irrigation system for agricultural use, integrating soil moisture sensing with automated pump control and remote monitoring.
 
-## Implementation
-- 3-phase PWM generation at 20kHz
-- Clarke and Park transforms in real-time
-- PI current controllers tuned via Ziegler-Nichols
-- CAN bus communication for multi-axis coordination
-
-## Results
-Achieved smooth torque control with <2% ripple at full load, suitable for compliant robotic joint control.`,
-    category: ["Embedded", "Control"],
-    tech: ["C", "STM32", "CAN Bus", "FOC", "MATLAB"],
-    media: [
-      {
-        type: "image",
-        url: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800",
-        caption: "Custom PCB for FOC controller"
-      },
-      {
-        type: "image",
-        url: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=800",
-        caption: "Torque response waveforms"
-      }
-    ],
+## System
+- Soil moisture sensor + motor driver connected to ESP32
+- Live sensor data streamed to Adafruit IO dashboard
+- Event-driven email notifications via IFTTT on every pump state change
+- Farmers alerted instantly without manual checking`,
+    category: ["Embedded", "IoT"],
+    tech: ["ESP32", "Python", "Adafruit IO", "IFTTT", "IoT"],
+    media: [],
     metrics: {
-      performance: "<2% torque ripple",
-      accuracy: "20kHz switching freq",
+      performance: "Automated pump control",
+      accuracy: "Real-time soil moisture monitoring",
       custom: [
-        { label: "Control Loop", value: "10kHz" },
-        { label: "Interface", value: "CAN Bus" }
+        { label: "Platform", value: "ESP32" },
+        { label: "Dashboard", value: "Adafruit IO" },
+        { label: "Alerts", value: "IFTTT Email" }
       ]
     },
     featured: false,
-    links: [
-      { type: "github", url: "https://github.com/username/stm32-foc", label: "Firmware" }
-    ],
+    links: [],
     details: {
-      duration: "2 months",
-      team: "Solo project",
+      duration: "2023",
+      team: "Bhavish Rai B",
       status: "Completed",
-      tags: ["FOC", "STM32", "Embedded", "Motor Control"]
+      tags: ["IoT", "ESP32", "Agriculture", "Automation", "Adafruit IO"]
     }
   },
   {
     id: 7,
-    slug: "swarm-formation-control",
-    title: "Swarm Formation Control with TurtleBot3",
-    shortDesc: "Distributed swarm algorithm enabling a fleet of TurtleBot3 robots to maintain dynamic formations and respond to leader commands.",
-    fullDescription: `Developed a decentralized swarm control system for a fleet of TurtleBot3 robots, enabling real-time formation switching and leader-follower coordination.
+    slug: "3dof-robotic-arm",
+    title: "3-DOF Robotic Arm Manipulator",
+    shortDesc: "Designed a 3-DOF robotic arm in SolidWorks with forward and inverse kinematics implemented for precision control and pick-and-place automation.",
+    fullDescription: `Designed a 3-degree-of-freedom robotic arm manipulator in SolidWorks and developed control algorithms for pick-and-place automation.
 
-## Algorithm
-- Consensus-based formation control
-- Distributed leader election
-- Formation switching via finite state machine
-- Obstacle avoidance integrated via potential fields
-
-## Outcome
-Demonstrated 5-robot fleet maintaining formation at 0.5m/s with formation error under 5cm.`,
-    category: ["Multi-Robot", "Control"],
-    tech: ["Python", "ROS 2", "TurtleBot3", "Gazebo", "NumPy"],
-    media: [
-      {
-        type: "image",
-        url: "https://images.unsplash.com/photo-1563968743333-044cef800494?w=800",
-        caption: "TurtleBot3 swarm in V-formation"
-      },
-      {
-        type: "youtube",
-        url: "https://www.youtube.com/watch?v=example4",
-        caption: "Formation switching demo"
-      }
-    ],
+## Work Done
+- Full 3D design in SolidWorks
+- Forward and inverse kinematics implementation
+- Trajectory planning for pick-and-place tasks`,
+    category: ["Mechanical", "Control"],
+    tech: ["SolidWorks", "Python", "Kinematics"],
+    media: [],
     metrics: {
-      performance: "<5cm formation error",
-      accuracy: "5-robot fleet at 0.5m/s",
+      performance: "Pick-and-place automation",
+      accuracy: "IK-based precision control",
       custom: [
-        { label: "Robots", value: "5 TurtleBot3" },
-        { label: "Formations", value: "4 patterns" }
+        { label: "DOF", value: "3" },
+        { label: "Design Tool", value: "SolidWorks" }
       ]
     },
     featured: false,
-    links: [
-      { type: "github", url: "https://github.com/username/swarm-turtlebot", label: "Code" }
-    ],
+    links: [],
     details: {
-      duration: "3 months",
-      team: "2 researchers",
+      duration: "2024",
+      team: "Bhavish Rai B",
       status: "Completed",
-      tags: ["Swarm", "Formation Control", "TurtleBot3", "Distributed"]
+      tags: ["Kinematics", "SolidWorks", "Manipulator", "Pick-and-Place"]
     }
   }
 ];
@@ -433,7 +432,6 @@ Demonstrated 5-robot fleet maintaining formation at 0.5m/s with formation error 
 export const allProjects = [
   ...featuredProjects,
   ...unstarredProjects
-  // Add more projects with same enhanced structure...
 ];
 
 export const skills = {
@@ -447,13 +445,13 @@ export const skills = {
   ],
   "PROGRAMMING": [
     { name: "Python", percent: 85 },
-    { name: "C++", percent: 60 },
-    { name: "C", percent: 60 },
+    { name: "C++", percent: 50 },
+    { name: "C", percent: 50 },
   ],
   "TOOLS": [
     { name: "Git", percent: 80 },
-    { name: "Docker", percent: 65 },
-    { name: "Linux", percent: 85 },
+    { name: "Docker", percent: 55 },
+    { name: "Linux", percent: 80 },
     { name: "SSH", percent: 70 },
     { name: "VS Code", percent: 90 },
   ],
@@ -469,13 +467,18 @@ export const skills = {
     { name: "Unitree Go2", percent: 60 },
     { name: "Lerobot", percent: 70 },
   ],
+  "HARDWARE": [
+    { name: "3D Printing", percent: 80 },
+    { name: "Laser Cutting", percent: 80 },
+    { name: "Soldering", percent: 80 },
+  ],
   "SIMULATION": [
     { name: "Gazebo Classic", percent: 90 },
     { name: "Ignition Fortress", percent: 85 },
   ],
-  "HARDWARE": [
-    { name: "3D Printing", percent: 80 },
-    { name: "Soldering", percent: 80 },
+  "CAD & DESIGN": [
+    { name: "Solidworks", percent: 70 },
+    { name: "Fusion 360", percent: 70 },
   ],
   "CONTROL": [
     { name: "PID", percent: 70 },
@@ -484,9 +487,9 @@ export const skills = {
 export const publications = [
   {
     id: 1,
-    title: "CoMuRoS: LLM-Based Generalizable Hierarchical Task Planning and Execution for Heterogeneous Robot Teams with Event-Driven Replanning.",
+    title: "CoMuRoS: LLM-Based Generalizable Hierarchical Task Planning and Execution for Heterogeneous Robot Teams with Event-Driven Replanning",
     authors: "Suraj Borate, Bhavish Rai B, Vipul Pardeshi, Madhu Vadali",
-    venue: "ArXiv, 2025",
+    venue: "ArXiv",
     year: 2025,
     link: "https://arxiv.org/abs/2511.22354"
   },
@@ -496,7 +499,24 @@ export const publications = [
     authors: "Suraj Borate, Bhavish Rai B, Vipul Pardeshi, Madhu Vadali",
     venue: "IROS 2025 LEAPRIDE Poster",
     year: 2025,
-    link: "https://openreview.net/forum?id=a0GqX5jGDb"
+    // link: "https://openreview.net/forum?id=a0GqX5jGDb"
+    link: "https://openreview.net/pdf?id=a0GqX5jGDb"
+  },
+  {
+    id: 3,
+    title: "Application of LLM Driven Robot Architecture for the Study of Robot Interventions in Making Task",
+    authors: "Suraj Borate, Bhavish Rai B, Vipul Pardeshi, Madhu Vadali",
+    venue: "Under preparation",
+    // year: 2025,
+    // link: "https://openreview.net/forum?id=a0GqX5jGDb"
+  },
+  {
+    id: 4,
+    title: "CoMuRoS-Nav: Combined Task Planning and Navigation using LLM Driven Task Planner and a Novel Multi-formation-Multirobot Path Planner",
+    authors: "Suraj Borate, Bhavish Rai B, Vipul Pardeshi, Madhu Vadali",
+    venue: "Under preparation",
+    // year: 2025,
+    // link: "https://openreview.net/forum?id=a0GqX5jGDb"
   },
 ];
 
@@ -506,7 +526,7 @@ export const talks = [
     title: "CoMuRoS: A ROS2 Based Package for LLM Driven Adaptive Collaborative Multi-Robot Systems",
     event: "ROSCon India2025",
     date: "December 2025",
-    // link: "https://your-talk-link.com"
+    link: "https://www.youtube.com/watch?v=dA2D3FWFkds"
   },
   // {
   //   id: 2,
