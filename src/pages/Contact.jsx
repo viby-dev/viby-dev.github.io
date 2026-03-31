@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Mail, Copy, Check } from 'lucide-react';
 import { motion } from 'framer-motion';
-import { personalInfo } from '../mockData';
+import { personalInfo } from '../data';
 
 const ContactSection = () => {
   const [copied, setCopied] = useState(false);

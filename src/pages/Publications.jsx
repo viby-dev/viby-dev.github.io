@@ -1,6 +1,6 @@
 import React from 'react';
 import { ExternalLink, FileText } from 'lucide-react';
-import { publications, talks } from '../mockData';
+import { publications, talks } from '../data';
 // import { personalInfo, about, mockPublications as publications, mockTalks as talks } from '../mockData';
 
 const Publications = () => {

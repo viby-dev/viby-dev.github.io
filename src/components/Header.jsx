@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 // import { Mail, FileText } from 'lucide-react';
 import { FileText } from 'lucide-react';
-import { personalInfo } from '../mockData';
+import { personalInfo } from '../data';
 
 const Header = () => {
   const navigate = useNavigate();

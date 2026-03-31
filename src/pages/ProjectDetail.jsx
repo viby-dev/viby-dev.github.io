@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { ArrowLeft, Github, Play, ExternalLink, FileText, LineChart, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { allProjects } from '../mockData';
+import { allProjects } from '../data';
 
 const ProjectDetail = () => {
   const { slug } = useParams();

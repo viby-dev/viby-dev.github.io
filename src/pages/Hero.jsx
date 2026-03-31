@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { personalInfo } from '../mockData';
+import { personalInfo } from '../data';
 
 const containerVariants = {
   hidden: { opacity: 0 },

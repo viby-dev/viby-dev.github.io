@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Github, ExternalLink, Play, Star, ChevronLeft, ChevronRight } from 'lucide-react';
 import { motion } from 'framer-motion';
-import { allProjects } from '../mockData';
+import { allProjects } from '../data';
 
 const categories = ['ALL', 'AI/ML', 'Multi-Robot', 'Control', 'Vision', 'Embedded'];
 

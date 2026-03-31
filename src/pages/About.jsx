@@ -1,7 +1,7 @@
 import React from 'react';
 import { Github, Linkedin, BookOpen, Mail, ExternalLink, GraduationCap, Briefcase, Award, MonitorPlay } from 'lucide-react';
 import { motion } from 'framer-motion';
-import { personalInfo, about, publications, talks } from '../mockData';
+import { personalInfo, about, publications, talks } from '../data';
 
 const socialLinks = [
   { icon: Github, href: personalInfo.github, label: 'GitHub' },

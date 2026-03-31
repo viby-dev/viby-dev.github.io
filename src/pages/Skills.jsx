@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { skills } from '../mockData';
+import { skills } from '../data';
 
 const SkillsSection = () => {
   const allSkills = Object.values(skills).flat();

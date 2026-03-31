@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { Github, Linkedin, Mail, BookOpen } from 'lucide-react';
-import { personalInfo } from '../mockData';
+import { personalInfo } from '../data';
 
 const Footer = () => {
   const navigate = useNavigate();
