@@ -204,6 +204,7 @@ const AboutSection = () => {
                   className="card block transition-all"
                 >
                   <h4 className="text-body font-semibold mb-3">{talk.title}</h4>
+                  <p className="label-small text-white/50 mb-2">{talk.speakers}</p>
                   <p className="text-body mb-2">{talk.event}</p>
                   <p className="label-small text-[#38FF62] mb-4">{talk.date}</p>
                   {talk.link && (

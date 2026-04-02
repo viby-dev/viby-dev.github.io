@@ -7,7 +7,7 @@ export const personalInfo = {
   github: "https://github.com/braib",
   linkedin: "https://www.linkedin.com/in/bhavish-rai-b-761421231/",
   // scholar: "https://scholar.google.com/",
-  resume: require("./assets/CV.pdf"),
+  resume: require("./assets/Bhavish_Rai_B-CV.pdf"),
   profileImage: require("./assets/bhavish.png")
 };
 
@@ -243,8 +243,18 @@ Tested in a real chicken farm at Beliyurukatte, Puttur. Plagarism and AI check p
     media: [
       {
         type: "youtube",
-        url: "https://youtube.com/shorts/YPX7rrlA688",
+        url: "https://youtube.com/shorts/hFM8OZQFCnQ?feature=share",
         caption: "Poultry Patrol Robot demo"
+      },
+      {
+        type: "youtube",
+        url: "https://youtu.be/U_nt_uAjus0",
+        caption: "Poultry Patrol Robot Design"
+      },
+      {
+        type: "image",
+        url: "https://drive.google.com/file/d/1d408hknNpKFARYUtFlV5sjxnRHhftlmA/view?usp=sharing",
+        caption: "Poultry Patrol Robot Design"
       }
     ],
     
@@ -525,6 +535,7 @@ export const talks = [
     id: 1,
     title: "CoMuRoS: A ROS2 Based Package for LLM Driven Adaptive Collaborative Multi-Robot Systems",
     event: "ROSCon India2025",
+    speakers: "Suraj Borate, Bhavish Rai B, Vipul Pardeshi, Madhu Vadali",
     date: "December 2025",
     link: "https://www.youtube.com/watch?v=dA2D3FWFkds"
   },
